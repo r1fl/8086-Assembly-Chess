@@ -1,0 +1,95 @@
+# ToDo:
+
+	* Move Validation
+
+@engine
+
+	-- initBoard:
+		Initialize a standart chess board over the board 8x8 Matrix.
+
+	-- getOffset:
+		Calculate the offset of a piece on the board
+
+		@param stack, offset of board in memory
+		@param si, Piece Row
+		@param di, Piece Col
+
+		@return bx, offset in memory
+
+	-- Validate Source
+		Checks if the piece selected is valid to move
+
+		@param bx, offset of the piece in memory
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- Validate Dest
+		Checks if the piece selected is valid to move
+
+		@param bx, offset of the piece in memory
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- Validate Move
+		Checks if the move is legal (Standart Chess Moves)
+
+		@param si, the source piece offset in memory
+		@param di, the dest piece offset in memory
+
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- move
+		Move the pieces on the board
+
+		@param si, the source piece offset in memory
+		@param di, the dest piece offset in memory
+
+
+@graphics
+
+	-- initGraph:
+		Call the 10h interrupt and initialize graphic mode
+
+	-- drawBoard:
+		Draw 8x8 board and it's pieces via drawCube
+
+		@param offset board@engine
+
+	-- drawCube:
+		Draw a 96x96 Pixels Cube.
+
+		@param al = Color
+		@param si = Cube Row
+		@param di = Cube Column
+
+	-- getColor:
+		Get a cube color by the cords
+
+		@param si = Cube Row
+		@param di = Cube Column
+
+		@return al = Cube Color
+
+	-- cleanBoard:
+		Fill the screen with black pixels (blanks)
+
+@io
+
+	-- getData:
+
+		@return si = Marker Row
+		@return di = Marker Column
+
+
+@bmp
+
+	-- drawFile
+		Draw a vga platted bmp file onto the screen
+
+		@param dx, offset filename string (ending with 0)
+		@param si, how many rows to margin the picture with
+		@param di, how many cols to margin the picture with
+
+
+	-- getHandle
+		Save the file handle in memory for later use
+
+		@param dx, offset of filename
