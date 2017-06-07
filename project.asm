@@ -17,8 +17,19 @@ blank@error		db	'Woops! nothing here.$'
 
 ; Directories
 
-root@wd		db	'/', 0
-pieces@wd	db	'project/pieces', 0
+root@wd			db	'/', 0
+pieces@wd		db	'project/pieces', 0
+
+; Selection
+
+sourcePos@sel	dd	0
+destPos@sel		dd	0
+step@sel		dw	0
+
+; Win Messages
+
+white@win		db 'Game ended. White won!$'
+black@win		db 'Game ended. Black won!$'
 
 CODESEG
 
@@ -46,11 +57,14 @@ START:
 	mov [markerRow@io], si
 	
 	game@start:
+		mov [step@sel], 0
+
 		getSource@game:
 			call getData@io
 
 			push si
 			push di
+			inc [step@sel]
 
 			push offset board@engine
 			call getOffset@engine
@@ -65,6 +79,7 @@ START:
 
 			push si
 			push di
+			inc [step@sel]
 
 			push offset board@engine
 			call getOffset@engine
@@ -75,9 +90,19 @@ START:
 
 		mov si, [sourceAddr@engine]
 		mov di, [destAddr@engine]
+
+		call validateMove@engine
+		jc invalid@game
+
+		cmp [byte di], 6
+		je white_won@game
+
+		cmp [byte di], -6
+		je black_won@game
+
 		call move@engine
 
-		mov cx, 2d
+		mov cx, [step@sel]
 		updateBoard@game:
 			pop di
 			pop si
@@ -102,10 +127,24 @@ START:
 		jmp game@start
 
 		invalid@game:
+			add sp, [step@sel]
+			add sp, [step@sel]
+
+			mov di, [markerCol@io]
+			mov si, [markerRow@io]
+
 			mov al, 0Ch
 			call markCube@graphics
 
 			jmp game@start
+
+		white_won@game:
+			mov dx, offset white@win
+			jmp exit_msg
+
+		black_won@game:
+			mov dx, offset black@win
+			jmp exit_msg
 
 	EXIT:
 		mov dx, offset blank@error
