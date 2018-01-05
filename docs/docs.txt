@@ -1,0 +1,154 @@
+# ToDo:
+
+	* Move Validation
+
+@engine
+
+	-- initBoard:
+		Initialize a standart chess board over the board 8x8 Matrix.
+
+	-- getOffset:
+		Calculate the offset of a piece on the board
+
+		@param stack, offset of board in memory
+		@param si, Piece Row
+		@param di, Piece Col
+
+		@return bx, offset in memory
+
+	-- validateSource
+		Checks if the piece selected is valid to move
+
+		@param bx, offset of the piece in memory
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- validateDest
+		Checks if the piece selected is valid to move
+
+		@param bx, offset of the piece in memory
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- validateMove
+		Checks if the move is legal (Standart Chess Moves)
+
+		@param si, the source piece offset in memory
+		@param di, the dest piece offset in memory
+
+		@return cf, [0 = Valid, 1 = Invalid]
+
+	-- move
+		Move the pieces on the board
+
+		@param si, the source piece offset in memory
+		@param di, the dest piece offset in memory
+
+
+@graphics
+
+	-- initGraph:
+		Call the 10h interrupt and initialize graphic mode
+
+	-- drawBoard:
+		Draw 8x8 board and it's pieces via drawCube
+
+		@param offset board@engine
+
+	-- drawCube:
+		Draw a 96x96 Pixels Cube.
+
+		@param al = Color
+		@param si = Cube Row
+		@param di = Cube Column
+
+	-- getColor:
+		Get a cube color by the cords
+
+		@param si = Cube Row
+		@param di = Cube Column
+
+		@return al = Cube Color
+
+	-- cleanBoard:
+		Fill the screen with black pixels (blanks)
+
+@io
+
+	-- getData:
+
+		@return si = Marker Row
+		@return di = Marker Column
+
+
+@bmp
+
+	-- drawFile
+		Draw a vga platted bmp file onto the screen
+
+		@param dx, offset filename string (ending with 0)
+		@param si, how many rows to margin the picture with
+		@param di, how many cols to margin the picture with
+
+
+	-- getHandle
+		Save the file handle in memory for later use
+
+		@param dx, offset of filename
+
+
+-- validateMove \ Extra:
+
+	# Forward \ Backward is relative to the white player
+
+	-- Pawn:
+		* pawn1 = 1 forward
+		* pawn2 = 2 forward
+		* pawn3 = 1 forward \ 1 left
+		* pawn4 = 1 forward \ 1 right
+		* pawn5 = exit
+
+	-- Knight:
+		* knight1 = 2 forward \ 1 left
+		* knight2 = 2 forward \ 1 right
+		* knight3 = 2 backward \ 1 left
+		* knight4 = 2 backward \ 1 right
+		* knight5 = 2 left \ 1 backward
+		* knight6 = 2 left \ 1 forward
+		* knight7 = 2 right \ 1 backward
+		* knight8 = 2 right \ 1 forward
+		* knight9 = exit
+
+	-- Bishop:
+		* bishop1 = x forward \ left
+		* bishop2 = x forward \ right
+		* bishop3 = x backward \ left
+		* bishop4 = x backward \ right
+		* bishop5 = exit
+
+	-- Rook:
+		* rook1 = x forward
+		* rook2 = x backward
+		* rook3 = x left
+		* rook4 = x right
+		* rook5 = exit
+
+	-- Queen:
+		* queen1 = x forward \ left
+		* queen2 = x forward \ right
+		* queen3 = x backward \ left
+		* queen4 = x backward \ right
+		* queen5 = x forward
+		* queen6 = x backward
+		* queen7 = x left
+		* queen8 = x right
+		* queen9 = exit
+
+	-- King:
+		* king1 = 1 forward
+		* king2 = 1 backward
+		* king3 = 1 left
+		* king4 = 1 right
+		* king5 = 1 forward \ 1 left
+		* king6 = 1 forward \ 1 right
+		* king7 = 1 backward \ 1 left
+		* king8 = 1 backward \ 1 right
+		* king9 = exit
