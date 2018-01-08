@@ -5,10 +5,10 @@
 	|   bmp.inc 		# Framework for displaying bmp
 	|   engine.inc 		# Board matrix, moves, validation
 	|   graphics.inc 	# Display the board
-	|   io.inc 			# Keyboard interrupts
+	|   io.inc 		# Keyboard interrupts
 	|   project.asm 	# Main file
 	|
-	+---assets 			# Game pieces; b = black; w = white
+	+---assets 		# Game pieces; b = black; w = white
 	|   |   bBishop.bmp
 	|   |   bKing.bmp
 	|   |   bKnight.bmp
@@ -38,7 +38,7 @@
 	|
 	+---docs
 	|       docs.txt
-	|       VGA.gpl 		# Color scheme
+	|       VGA.gpl 	# Color scheme
 	|       VGAAlpha.gpl 	# Color scheme w\ alpha
 	|
 	\---release
