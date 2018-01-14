@@ -6,8 +6,12 @@
 * [Getting Started](#getting-started)
 	* [Dependencies](#dependencies)
 	* [Building from Source](#building-from-source)
+	* [Playing the game](#playing-the-game)
+* [File stracture](#file-stracture)
 
 #### Introduction
+
+Chess game written in Assembly
 
 Getting started
 ---------------
@@ -18,24 +22,39 @@ Getting started
 * A compiler with 16bit support ([Tasm](https://drive.google.com/file/d/1pwyM8Pnza5dO_Zh7tBEKYHQxOG0kfmZt/view?usp=sharing))
 
 
-#### Building from source	
+#### Building from source
+
+To download the source files type the following command in terminal:
 
 	$ git clone https://github.com/itamarx22/8086-Assembly-Chess
-	$ dosbox
+
+Afterwords you should have a folder 8086-Assembly-Chess somewhere in your pc.  
+To get there type the following commands in the dosbox terminal:
 
 	> mount <disk> <disk>:/
-	> cd <path>
+	> cd <path>/8086-Assembly-Chess
+
+Finally compile the project using tasm and tlink with these commands:
 
 	> tasm /zi project.asm
 	> tlink /v project.obj
 
+
+#### Playing the game
+
+1. Change your current directory to 8086-Assembly chess as instructed in the building from source section.
+2. Run project.exe
+
+IMPORTANT: make sure the assets folder is in the same directory as the executable files in order for the game to run properly.
+
+Hit w, a, s, d to move the cursor and enter to lock it in place.
 
 #### File stracture
 
 	|   bmp.inc 		# Framework for displaying bmp
 	|   engine.inc 		# Board matrix, moves, validation
 	|   graphics.inc 	# Display the board
-	|   io.inc  	# Keyboard interrupts
+	|   io.inc  		# Keyboard interrupts
 	|   project.asm 	# Main file
 	|
 	+---assets 		# Game pieces; b = black; w = white
