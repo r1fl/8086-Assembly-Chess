@@ -13,6 +13,9 @@
 
 Chess game written in Assembly
 
+[![game screenshot](https://i.imgur.com/cYwtXcp.png)](https://imgur.com/YIadbsH)
+
+
 Getting started
 ---------------
 
