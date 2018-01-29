@@ -52,7 +52,7 @@ IMPORTANT: make sure the assets folder is in the same directory as the executabl
 
 Hit w, a, s, d to move the cursor and enter to lock it in place.
 
-#### File stracture
+#### File structure
 
 	|   bmp.inc 		# Framework for displaying bmp
 	|   engine.inc 		# Board matrix, moves, validation
