@@ -1,4 +1,4 @@
-# 8086-Assembly-Chess
+# 8086-Assembly-Chess-TEXTMODE
 
 #### Table of Contents
 
@@ -6,14 +6,12 @@
 * [Getting Started](#getting-started)
 	* [Dependencies](#dependencies)
 	* [Building from Source](#building-from-source)
-	* [Playing the game](#playing-the-game)
-* [File stracture](#file-stracture)
 
 #### Introduction
 
 Chess game written in Assembly
 
-[![game screenshot](https://i.imgur.com/cYwtXcp.png)](https://imgur.com/YIadbsH)
+[![game screenshot](https://i.imgur.com/RnPbQdJ.png)](https://i.imgur.com/AKEmZx6.png)
 
 
 Getting started
@@ -41,89 +39,3 @@ Finally compile the project using tasm and tlink with these commands:
 
 	> tasm /zi /m project.asm
 	> tlink /v project.obj
-
-
-#### Playing the game
-
-1. Change your current directory to 8086-Assembly chess as instructed in the building from source section.
-2. Run project.exe
-
-IMPORTANT: make sure the assets folder is in the same directory as the executable files in order for the game to run properly.
-
-Hit w, a, s, d to move the cursor and enter to lock it in place.
-
-#### File stracture
-
-	|   bmp.inc 		# Framework for displaying bmp
-	|   engine.inc 		# Board matrix, moves, validation
-	|   graphics.inc 	# Display the board
-	|   io.inc  		# Keyboard interrupts
-	|   project.asm 	# Main file
-	|
-	+---assets 		# Game pieces; b = black; w = white
-	|   |   bBishop.bmp
-	|   |   bKing.bmp
-	|   |   bKnight.bmp
-	|   |   bPawn.bmp
-	|   |   bQueen.bmp
-	|   |   bRook.bmp
-	|   |   wBishop.bmp
-	|   |   wKing.bmp
-	|   |   wKnight.bmp
-	|   |   wPawn.bmp
-	|   |   wQueen.bmp
-	|   |   wRook.bmp
-	|   |
-	|   \---svg 
-	|           blackBishop.svg
-	|           blackKing.svg
-	|           blackKnight.svg
-	|           blackPawn.svg
-	|           blackQueen.svg
-	|           blackRook.svg
-	|           whiteBishop.svg
-	|           whiteKing.svg
-	|           whiteKnight.svg
-	|           whitePawn.svg
-	|           whiteQueen.svg
-	|           whiteRook.svg
-	|
-	+---docs
-	|       docs.txt
-	|       VGA.gpl 	# Color scheme
-	|       VGAAlpha.gpl 	# Color scheme w\ alpha
-	|
-	\---release
-	    |   PROJECT.EXE
-	    |   TEXT.EXE
-	    |
-	    \---pieces
-	        |   bBishop.bmp
-	        |   bg.bmp
-	        |   bKing.bmp
-	        |   bKnight.bmp
-	        |   bPawn.bmp
-	        |   bQueen.bmp
-	        |   bRook.bmp
-	        |   PROJECT.TR
-	        |   TDCONFIG.TD
-	        |   wBishop.bmp
-	        |   wKing.bmp
-	        |   wKnight.bmp
-	        |   wPawn.bmp
-	        |   wQueen.bmp
-	        |   wRook.bmp
-	        |
-	        \---svg
-	                blackBishop.svg
-	                blackKing.svg
-	                blackKnight.svg
-	                blackPawn.svg
-	                blackQueen.svg
-	                blackRook.svg
-	                whiteBishop.svg
-	                whiteKing.svg
-	                whiteKnight.svg
-	                whitePawn.svg
-	                whiteQueen.svg
-	                whiteRook.svg
