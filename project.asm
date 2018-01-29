@@ -3,10 +3,10 @@ MODEL small
 STACK 100h
 P286
 
-include 'project/graphics.inc'
-include 'project/engine.inc'
-include 'project/bmp.inc'
-include 'project/io.inc'
+include 'graphics.inc'
+include 'engine.inc'
+include 'bmp.inc'
+include 'io.inc'
 
 DATASEG
 
@@ -17,8 +17,8 @@ blank@error		db	'Woops! nothing here.$'
 
 ; Directories
 
-root@wd			db	'/', 0
-pieces@wd		db	'project/pieces', 0
+root@wd			db	'../', 0
+pieces@wd		db	'assets', 0
 
 ; Selection
 

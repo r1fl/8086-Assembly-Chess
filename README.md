@@ -39,7 +39,7 @@ To get there type the following commands in the dosbox terminal:
 
 Finally compile the project using tasm and tlink with these commands:
 
-	> tasm /zi project.asm
+	> tasm /zi /m project.asm
 	> tlink /v project.obj
 
 

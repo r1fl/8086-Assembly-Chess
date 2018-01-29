@@ -1,3 +1,5 @@
-/build/*
+PROJECT.MAP
+PROJECT.OBJ
+PROJECT.EXE
 /tasm/*
 *.bak
