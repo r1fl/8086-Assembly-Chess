@@ -7,7 +7,7 @@
 	* [Dependencies](#dependencies)
 	* [Building from Source](#building-from-source)
 	* [Playing the game](#playing-the-game)
-* [File stracture](#file-stracture)
+* [File tree](#file-tree)
 
 #### Introduction
 
@@ -31,7 +31,7 @@ To download the source files type the following command in terminal:
 
 	$ git clone https://github.com/itamarx22/8086-Assembly-Chess
 
-Afterwords you should have a folder 8086-Assembly-Chess somewhere in your pc.  
+Afterwards you should have a folder 8086-Assembly-Chess somewhere in your pc.  
 To get there type the following commands in the dosbox terminal:
 
 	> mount <disk> <disk>:/
@@ -52,7 +52,7 @@ IMPORTANT: make sure the assets folder is in the same directory as the executabl
 
 Hit w, a, s, d to move the cursor and enter to lock it in place.
 
-#### File structure
+#### File tree
 
 	|   bmp.inc 		# Framework for displaying bmp
 	|   engine.inc 		# Board matrix, moves, validation
